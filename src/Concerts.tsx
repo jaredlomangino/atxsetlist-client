@@ -39,14 +39,14 @@ function Concerts({ concert }: ConcertProps) {
 
     return (
         <>
-            <div key={concert.concert_id} className="flex flex-col content-center w-full mt-5 bg-card-background border-2 border-card-button rounded-xl drop-shadow-xl md:flex-row md:max-w-xl">
+            <div key={concert.concert_id} className="flex flex-col content-center w-full mb-5 bg-card-background border-2 border-card-button rounded-xl drop-shadow-xl md:flex-row md:max-w-xl">
                 {data!.artists.items[0].images.length > 0  &&
                     <img className="object-cover w-full rounded-t-lg md:h-52 md:w-48 md:rounded-none md:rounded-l-lg" src={data!.artists.items[0].images[0].url} alt="" />}
                 <div className="flex flex-col justify-between p-4 leading-normal mr-4">
                     <h5 className="mb-1 text-2xl font-bold tracking-tight text-black">
                         {concert.band_name}
                     </h5>
-                    <p className="font-normal text-gray-700">{moment(concert.concert_date).format('MM/DD/YYYY')}</p>
+                    <p className="font-normal text-gray-700">{moment.utc(concert.concert_date).format('MM/DD/YYYY')}</p>
                     <p className="font-normal text-gray-700">{concert.venue_name}</p>
                     <p className="font-normal text-gray-700">{concert.showtime}</p>
                     <div className="flex">
