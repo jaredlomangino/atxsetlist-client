@@ -15,6 +15,8 @@ interface ConcertProps {
 
 function Concerts({ concert }: ConcertProps) {
     const bandName = concert.band_name
+    const formattedConcertDate = moment.utc(concert.concert_date).format('MM/DD/YYYY')
+    const concertDateDay = moment.utc(concert.concert_date).format('dddd').substring(0,3)
     const [spotifyTrackModalIsOpen, setSpotifyTrackModalIsOpen] = React.useState(false)
     const { data, isLoading, error } = useQuery([concert.band_name, bandName], () => searchArtistName(bandName))
     let spotifyId = ''
@@ -46,7 +48,7 @@ function Concerts({ concert }: ConcertProps) {
                     <h5 className="mb-1 text-2xl font-bold tracking-tight text-black">
                         {concert.band_name}
                     </h5>
-                    <p className="font-normal text-gray-700">{moment.utc(concert.concert_date).format('MM/DD/YYYY')}</p>
+                    <p className="font-normal text-gray-700">{concertDateDay + ' ' + formattedConcertDate}</p>
                     <p className="font-normal text-gray-700">{concert.venue_name}</p>
                     <p className="font-normal text-gray-700">{concert.showtime}</p>
                     <div className="flex">
