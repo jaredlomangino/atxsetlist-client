@@ -54,7 +54,7 @@ function Concerts({ concert }: ConcertProps) {
                             <button type="button" className="text-white mt-4 bg-card-button hover:bg-card-button-hover focus:ring-4 focus:ring-blue-300 font-medium rounded-xl text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none">Get Tickets</button>
                         </a>   
                         {spotifyId !== '' && 
-                            <button type="button" onClick={handleTrackModalButtonClicked} className="absolute bottom-5 right-3">
+                            <button type="button" onClick={handleTrackModalButtonClicked} className="mt-2 ml-4">
                                 <img src={spotifyLogo} alt="" />
                             </button>
                         }
